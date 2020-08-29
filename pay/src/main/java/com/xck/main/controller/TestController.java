@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.xck.main.entity.UserInfo;
 import com.xck.main.service.InfoService;
+import com.xck.main.util.JsonUtil;
 import io.swagger.annotations.Api;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class TestController {
     private InfoService infoService;
 
     @GetMapping("/test")
-    public JSON test(){
+    public JsonUtil test(){
         List<UserInfo> userInfoList = infoService.queryInfo();
-        return (JSON) JSONObject.toJSON(userInfoList);
+        return new JsonUtil<List>(201,"成功",userInfoList);
     }
 }
