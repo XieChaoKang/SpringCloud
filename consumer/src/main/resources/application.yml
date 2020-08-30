@@ -1,2 +1,21 @@
 server:
   port: 80
+
+spring:
+  application:
+    name: consumer-service
+  datasource:
+    username: root
+    password: Admin123!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://182.92.130.191:3306/test?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    type: com.alibaba.druid.pool.DruidDataSource
+  #热部署
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+mybatis:
+  type-aliases-package: com.xck.main.entity
+  mapper-locations: classpath:mapper/*.xml

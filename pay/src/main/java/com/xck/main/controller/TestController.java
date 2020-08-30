@@ -10,6 +10,8 @@ import io.swagger.annotations.Api;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,12 +22,13 @@ import java.util.List;
 
 @Api(tags = "测试")
 @RestController
+@RequestMapping("/pay/")
 public class TestController {
 
     @Autowired
     private InfoService infoService;
 
-    @GetMapping("/test")
+    @PostMapping("test")
     public JsonUtil test(){
         List<UserInfo> userInfoList = infoService.queryInfo();
         return new JsonUtil<List>(201,"成功",userInfoList);
