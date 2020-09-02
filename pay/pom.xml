@@ -95,6 +95,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.xck</groupId>
+            <artifactId>api-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

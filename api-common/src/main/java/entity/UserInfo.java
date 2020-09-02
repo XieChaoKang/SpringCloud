@@ -2,9 +2,6 @@ package entity;
 
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 /**
  * @author 谢朝康
  * @date 2020/4/4 14:17
@@ -12,31 +9,30 @@ import javax.validation.constraints.Size;
  */
 @Data
 public class UserInfo {
-    @NotNull(message = "id不能为空！！！")
+
     private int id;
     private String password;
-    @NotNull(message = "姓名不能为空")
+
     private String name;
-    @NotNull(message = "性别不能为空")
+
     private String gender;
-    @NotNull(message = "生日不能为空")
+
     private String birthday;
-    @NotNull(message = "民族不能为空")
+
     private String nationality;
-    @NotNull(message = "身份证号码不能为空")
-    @Size(min = 18,max = 18,message = "身份证号码必须是18位")
+
     private String ID_card;
-    @NotNull(message = "政治面貌不能为空")
+
     private String political_status;
-    @NotNull(message = "住址不能为空")
+
     private String address;
-    @NotNull(message = "电话号码不能为空")
+
     private String phone;
-    @NotNull(message = "院系不能为空")
+
     private String department;
-    @NotNull(message = "专业不能为空")
+
     private String Major_name;
-    @NotNull(message = "班级不能为空")
+
     private String Administrative_class;
     private String salt;
 
@@ -70,7 +66,7 @@ public class UserInfo {
         this.name = name;
     }
 
-    public UserInfo(@NotNull(message = "id不能为空！！！") int id, @NotNull(message = "姓名不能为空") String name, @NotNull(message = "性别不能为空") String gender, @NotNull(message = "生日不能为空") String birthday, @NotNull(message = "民族不能为空") String nationality, @NotNull(message = "身份证号码不能为空") @Size(min = 18, max = 18, message = "身份证号码必须是18位") String ID_card, @NotNull(message = "政治面貌不能为空") String political_status, @NotNull(message = "住址不能为空") String address, @NotNull(message = "电话号码不能为空") String phone, @NotNull(message = "院系不能为空") String department, @NotNull(message = "专业不能为空") String major_name, @NotNull(message = "班级不能为空") String administrative_class) {
+    public UserInfo(int id, String name, String gender, String birthday, String nationality, String ID_card,  String political_status, String address, String phone, String department, String major_name, String administrative_class) {
         this.id = id;
         this.name = name;
         this.gender = gender;
