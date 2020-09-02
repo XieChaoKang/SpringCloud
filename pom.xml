@@ -9,6 +9,7 @@
         <module>pay</module>
         <module>consumer</module>
         <module>api-common</module>
+        <module>eureka-server</module>
     </modules>
     <packaging>pom</packaging>
     <name>cloud</name>
