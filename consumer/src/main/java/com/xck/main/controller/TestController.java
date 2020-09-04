@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import util.JsonUtil;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author admin
@@ -19,7 +20,7 @@ import javax.annotation.Resource;
 @RequestMapping("/consumer/")
 public class TestController {
 
-    private static final String PAY_URL = "http://localhost";
+    private static final String PAY_URL = "http://localhost:8001";
 
     @Resource
     private RestTemplate restTemplate;
@@ -29,7 +30,9 @@ public class TestController {
      * 发送数据用postForObject
      * */
     @RequestMapping("test")
-    public JsonUtil<UserInfo> test(){
-        return restTemplate.postForObject(PAY_URL+"/pay/test",null,JsonUtil.class);
+    public JsonUtil<List<UserInfo>> test(){
+        JsonUtil<List> result = new JsonUtil<>();
+        JsonUtil jsonUtil = restTemplate.postForObject(PAY_URL + "/pay/test", null, result.getClass());
+        return jsonUtil;
     }
 }

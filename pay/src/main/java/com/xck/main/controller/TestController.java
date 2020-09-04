@@ -23,9 +23,11 @@ public class TestController {
     @Autowired
     private InfoService infoService;
 
-    @RequestMapping("test")
+
+    @PostMapping("test")
     public JsonUtil test(){
         List<UserInfo> userInfoList = infoService.queryInfo();
-        return new JsonUtil<List>(201,"成功",userInfoList);
+        JsonUtil<List> result = new JsonUtil<>(201, "成功", userInfoList);
+        return result;
     }
 }
