@@ -1,6 +1,6 @@
 package com.xck.main.mapper;
 
-import com.xck.main.entity.UserInfo;
+import entity.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

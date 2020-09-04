@@ -1,7 +1,6 @@
 package com.xck.main.service;
 
-import com.xck.main.entity.UserInfo;
-import org.springframework.stereotype.Service;
+import entity.UserInfo;
 
 import java.util.List;
 

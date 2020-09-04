@@ -1,8 +1,8 @@
 package com.xck.main.service.impl;
 
-import com.xck.main.entity.UserInfo;
 import com.xck.main.mapper.UserInfoMapper;
 import com.xck.main.service.InfoService;
+import entity.UserInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

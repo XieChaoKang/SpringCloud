@@ -15,6 +15,16 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
-mybatis:
-  type-aliases-package: com.xck.main.entity
-  mapper-locations: classpath:mapper/*.xml
+#mybatis:
+ # type-aliases-package: entity
+ # mapper-locations: classpath:mapper/*.xml
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+
