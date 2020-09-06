@@ -1,15 +1,16 @@
 package com.xck.main.controller;
 
-import entity.UserInfo;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
+import com.google.gson.Gson;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import util.JsonUtil;
 
 import javax.annotation.Resource;
-import java.util.List;
+
 
 /**
  * @author admin
@@ -30,9 +31,8 @@ public class TestController {
      * 发送数据用postForObject
      * */
     @RequestMapping("test")
-    public JsonUtil<List<UserInfo>> test(){
-        JsonUtil<List> result = new JsonUtil<>();
-        JsonUtil jsonUtil = restTemplate.postForObject(PAY_URL + "/pay/test", null, result.getClass());
-        return jsonUtil;
+    public JsonUtil test(){
+        String result = restTemplate.postForObject(PAY_URL + "/pay/test", null, String.class);
+        return new JsonUtil(200,"SUCCESS",result);
     }
 }
