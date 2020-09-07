@@ -9,7 +9,8 @@ import org.springframework.web.client.RestTemplate;
  * @author admin
  */
 @Configuration
-public class ApplicationConfig {
+public class ApplicationConfiguration {
+
     @LoadBalanced
     @Bean
     public RestTemplate getRestTemplate(){
