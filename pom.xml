@@ -14,6 +14,7 @@
         <module>consul-pay</module>
         <module>consul-consumer</module>
         <module>eureka-pay</module>
+        <module>Feign-consumer</module>
     </modules>
     <packaging>pom</packaging>
     <name>cloud</name>

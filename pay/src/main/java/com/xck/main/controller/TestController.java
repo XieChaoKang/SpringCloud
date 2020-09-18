@@ -50,6 +50,11 @@ public class TestController {
         for (ServiceInstance instance : instances) {
             System.out.println(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
         }
-        return this.discoveryClient;
+        return this.discoveryClient+"\n"+serverPort;
+    }
+
+    @RequestMapping("feign")
+    public String feign(){
+        return "SUCCESS";
     }
 }

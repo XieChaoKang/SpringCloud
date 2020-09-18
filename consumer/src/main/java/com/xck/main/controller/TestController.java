@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @RequestMapping("/consumer/")
 public class TestController {
 
-    private static final String PAY_URL = "http://localhost:8001";
+    private static final String PAY_URL = "http://PAY-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
@@ -29,7 +29,7 @@ public class TestController {
      * */
     @RequestMapping("test")
     public JsonUtil test(){
-        String result = restTemplate.postForObject(PAY_URL + "/pay/test", null, String.class);
+        String result = restTemplate.postForObject(PAY_URL + "/pay/discovery", null, String.class);
         return new JsonUtil(200,"SUCCESS",result);
     }
 }
