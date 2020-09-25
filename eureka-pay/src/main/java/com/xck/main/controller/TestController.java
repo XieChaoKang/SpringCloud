@@ -51,4 +51,9 @@ public class TestController {
         }
         return this.discoveryClient+"\n"+serverPort;
     }
+
+    @RequestMapping("feign")
+    public String feign(){
+        return "SUCCESS";
+    }
 }
