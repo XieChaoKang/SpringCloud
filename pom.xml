@@ -15,6 +15,8 @@
         <module>consul-consumer</module>
         <module>eureka-pay</module>
         <module>Feign-consumer</module>
+        <module>hystrix</module>
+        <module>hystrix-feign</module>
     </modules>
     <packaging>pom</packaging>
     <name>cloud</name>

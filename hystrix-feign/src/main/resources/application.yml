@@ -1,0 +1,24 @@
+server:
+  port: 8010
+
+
+eureka:
+  client:
+    register-with-eureka: true    #表识不向注册中心注册自己
+    fetch-registry: true   #表示自己就是注册中心，职责是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+spring:
+  application:
+    name: hystrix-feign
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000   #配置openFeign的建立连接超时时间
+        readTimeout: 6000       #配置openFeign的请求处理超时时间
+  hystrix:
+    enabled: true               #在客户端配置服务降级，自我保护
+
+
