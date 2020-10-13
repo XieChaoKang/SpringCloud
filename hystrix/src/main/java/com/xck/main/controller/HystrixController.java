@@ -1,6 +1,7 @@
 package com.xck.main.controller;
 
 import com.xck.main.service.HystrixService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,11 @@ public class HystrixController {
     @RequestMapping("/timeOut")
     private String timeOut(){
         return hystrixService.timeOut();
+    }
+
+    @RequestMapping("/fuSing/{id}")
+    private String fuSing(@PathVariable("id")int id){
+        return hystrixService.fuSing(id);
     }
 
 }

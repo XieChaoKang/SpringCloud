@@ -22,24 +22,32 @@ public class HystrixService {
 
     /**假设出现服务出问题的情况（假设服务响应时间超过两秒或者服务直接崩溃就相当于服务出现故障） 进行服务降级 */
     @HystrixCommand(fallbackMethod = "fall",commandProperties = {
-            //@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
-            @HystrixProperty(name="execution.isolation.thread.interruptOnTimeout", value="TRUE"), //是否开启断路器 相当于是否要熔断
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
+    })
+    public String timeOut(){
+        int time = 3000;
+        //模拟服务直接崩溃
+        //int sum = 10/0;
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info("jinn");
+        return "线程："+Thread.currentThread().getName()+"睡了%s"+time+"秒";
+    }
+
+    @HystrixCommand(fallbackMethod = "fall",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.interruptOnTimeout", value="true"), //是否开启断路器 相当于是否要熔断
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //请求次数
             @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //时间范围
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50") //失败率达到多少后跳闸
     })
-    public String timeOut(){
-        int time = 3000;
-        IdUtil.simpleUUID();
-        //模拟服务直接崩溃
-        //int sum = 10/0;
-        /*try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-        log.info("jinn");
-        return "线程："+Thread.currentThread().getName()+"睡了%s"+time+"秒";
+    public String fuSing(int id){
+        if (id < 0){
+            throw new RuntimeException("*****id不能为负数");
+        }
+        return "流水号："+IdUtil.simpleUUID();
     }
 
     /**
@@ -49,7 +57,7 @@ public class HystrixService {
         return "请求过多，服务进行降级，调用兜底方法";
     }
 
-    public String fall(){
-        return "服务熔断";
+    public String fall(int id){
+        return "服务熔断"+id;
     }
 }
