@@ -1,5 +1,6 @@
 package com.xck.main.service;
 
+import cn.hutool.core.util.IdUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,7 @@ public class HystrixService {
     })
     public String timeOut(){
         int time = 3000;
+        IdUtil.simpleUUID();
         //模拟服务直接崩溃
         //int sum = 10/0;
         /*try {
