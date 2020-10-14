@@ -57,6 +57,7 @@ public class HystrixService {
         return "请求过多，服务进行降级，调用兜底方法";
     }
 
+    /**兜底方法 必须和 HystrixCommand 修饰的方法 的参数一样*/
     public String fall(int id){
         return "服务熔断"+id;
     }
