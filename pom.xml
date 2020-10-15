@@ -19,6 +19,8 @@
         <module>hystrix-feign</module>
         <module>hystrix-dashboard</module>
         <module>gateway</module>
+        <module>stream-rabbitmq-provider</module>
+        <module>stream-rabbitmq-consumer1</module>
     </modules>
     <packaging>pom</packaging>
     <name>cloud</name>
